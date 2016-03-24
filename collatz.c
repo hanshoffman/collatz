@@ -1,29 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-//#include <omp.h>
 
 const int MAX_NUM = 1000000;
 
 int main(int argc, const char* argv[]) {
-	int i = MAX_NUM, j, currStep = 0, maxSteps, maxIndex;
-	
-	clock_t startTime = clock();
-	while (i > 0) {
-		j = i, currStep = 0;
-		while (j > 1) {	
-			j = (j % 2 == 0) ? j/2 : 3*j+1;
-			currStep++;
+	int maxIndex = 0, currIterations = 1, maxIterations = 0;
+	for (int i=2; i<=MAX_NUM; i++) {
+		unsigned long n = i;
+		while (n > 1) {
+			currIterations++;
+			n = (n % 2 == 0) ? n/2 : 3*n+1;
+			if (currIterations > maxIterations) { maxIterations = currIterations; maxIndex = i; };
 		}
-	
-		if (currStep > maxSteps) maxSteps = currStep, maxIndex = i;
-		i--;
+		currIterations = 0;
 	}
-	clock_t endTime = clock();
-	printf("maxIndex:%i, maxSteps:%i\n", maxIndex, maxSteps);
-	printf("Time elapsed: %f ms", (float) (endTime - startTime)/(CLOCKS_PER_SEC/1000));
+	printf("(%d %d)\n", maxIndex, maxIterations);
 }
-
 //https://hbfs.wordpress.com/2012/05/01/faster-collatz/
 //http://www.ericr.nl/wondrous/techpage.html
 //http://gribblelab.org/CBootcamp/A2_Parallel_Programming_in_C.html
+//http://www.mathblog.dk/project-euler-14/
+//http://code.jasonbhill.com/c/project-euler-problem-14/
+
+//The starting number 837799 produces a sequence of 525.
+//maxIndex:910107, maxSteps:475

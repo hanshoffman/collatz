@@ -1,22 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <omp.h>
+
+const int MAX_NUM = 10;
 
 int main(int argc, const char* argv[]) {
-	int n = atoi(argv[1]);
-	printf("%i\n", n);
-
-	printf("%i ", n);
+	int i = MAX_NUM, j, currCount = 0, maxCount;
+	
 	clock_t startTime = clock();
-	while (n != 1) {
-		if (n % 2 == 0) {
-			n = n / 2;
-		} else {
-			n = (n + n + n) + 1;
+	while (i > 0) {
+		j = i;
+		currCount = 0;
+		printf("%i ", j);
+		while (j > 1) {	
+			if (j % 2 == 0) {
+				j = j / 2;
+			} else {
+				j = 3*j + 1;
+			}
+			// shortcut... x=(x%2) ? 3*x+1 : x/2
+			currCount++;
+			printf("%i ", j);
 		}
 	
-		printf("%i ", n);
+		if (currCount > maxCount) maxCount = currCount;
+		printf(":%i\n\n", maxCount);
+		i--;
 	}
 	clock_t endTime = clock();
-	printf("\nElapsed time: %f seconds", (double) (endTime - startTime)/CLOCKS_PER_SEC));
+	printf("\nTime elapsed: %f ms", (float) (endTime - startTime)/(CLOCKS_PER_SEC/1000));
 }
+
+//https://hbfs.wordpress.com/2012/05/01/faster-collatz/
+//http://www.ericr.nl/wondrous/techpage.html
+//http://gribblelab.org/CBootcamp/A2_Parallel_Programming_in_C.html

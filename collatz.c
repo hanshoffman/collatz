@@ -12,15 +12,18 @@ int main(int argc, const char* argv[]) {
 			n = (n % 2 == 0) ? n/2 : 3*n+1;
 			if (currIterations > maxIterations) { maxIterations = currIterations; maxIndex = i; };
 		}
-		currIterations = 0;
+		currIterations = 1;
 	}
-	printf("(%d %d)\n", maxIndex, maxIterations);
+	
+	printf("%d\n%d ", maxIndex, maxIndex);
+	unsigned long j = maxIndex;
+	while (j > 1) {
+		j = (j % 2 == 0) ? j/2 : 3*j+1;
+		printf("%lu ", j);
+	}
 }
 //https://hbfs.wordpress.com/2012/05/01/faster-collatz/
 //http://www.ericr.nl/wondrous/techpage.html
 //http://gribblelab.org/CBootcamp/A2_Parallel_Programming_in_C.html
 //http://www.mathblog.dk/project-euler-14/
 //http://code.jasonbhill.com/c/project-euler-problem-14/
-
-//The starting number 837799 produces a sequence of 525.
-//maxIndex:910107, maxSteps:475

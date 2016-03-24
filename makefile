@@ -1,5 +1,6 @@
 CC = gcc
-CFLAGS = -fopenmp -Wall
+//CFLAGS = -g -fopenmp -Wall
+CFLAGS = -g -Wall
 TARGET = collatz
 
 all: $(TARGET)

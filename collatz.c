@@ -10,12 +10,12 @@ int main(int argc, const char* argv[]) {
 		while (n > 1) {
 			currIterations++;
 			n = (n % 2 == 0) ? n/2 : 3*n+1;
-			if (currIterations > maxIterations) { maxIterations = currIterations; maxIndex = i; };
+			if (currIterations > maxIterations) { maxIterations = currIterations; maxIndex = i; }
 		}
 		currIterations = 1;
 	}
 	
-	printf("%d\n%d ", maxIndex, maxIndex);
+	printf("Starting number: %d\n%d ", maxIndex, maxIndex);
 	unsigned long j = maxIndex;
 	while (j > 1) {
 		j = (j % 2 == 0) ? j/2 : 3*j+1;

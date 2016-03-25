@@ -4,3 +4,8 @@ Apple LLVM version 7.3.0 (clang-703.0.29)
 Target: x86_64-apple-darwin15.3.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+brew install omp
+
+[hdot:~/Documents/Code/collatz]$ clang -fopenmp -o collatz collatz.c                                                                                                                          (master✱)
+clang: error: unsupported option '-fopenmp'

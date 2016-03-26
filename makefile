@@ -1,11 +1,15 @@
 CC = gcc
 CFLAGS = -Ofast
-TARGET = collatz
+BASIC = collatz_basic
+SPEEDUP = collatz_speedup
 
-all: $(TARGET)
+all: $(BASIC) $(SPEEDUP)
 
-$(TARGET): $(TARGET).c
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+$(BASIC): $(BASIC).c
+	$(CC) $(CFLAGS) -o $(BASIC) $(BASIC).c
+
+$(SPEEDUP): $(SPEEDUP).c
+	$(CC) $(CFLAGS) -o $(SPEEDUP) $(SPEEDUP).c
 
 clean: 
-	rm -rf $(TARGET) *.o *.dSYM/
+	rm -rf $(BASIC) $(SPEEDUP) *.o *.dSYM/

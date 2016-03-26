@@ -1,11 +1,11 @@
-[hdot:~/Documents/Code/collatz]$ gcc -v                                                                                                                                                         (master✱)
-Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
-Apple LLVM version 7.3.0 (clang-703.0.29)
-Target: x86_64-apple-darwin15.3.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+Compile:
+# make (using makefile)
 
-brew install omp
+Run:
+# time ./collatz_basic
+# time ./collatz_speedup
 
-[hdot:~/Documents/Code/collatz]$ clang -fopenmp -o collatz collatz.c                                                                                                                          (master✱)
-clang: error: unsupported option '-fopenmp'
+*see the huge speed improvement!
+
+Clean up:
+# make clean

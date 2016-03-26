@@ -27,5 +27,5 @@ int main(int argc, const char* argv[]) {
 	while (n > 1) {
 		n = (n % 2 == 0) ? n/2 : 3*n+1;
 		printf("%lu ", n);
-	}
+	} printf("\n");
 }

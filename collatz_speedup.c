@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const int MAX_NUM = 1000000;
+#define MAX_NUM 1000000
 int LOOK_UP[MAX_NUM];
 
 int main(int argc, const char* argv[]) {

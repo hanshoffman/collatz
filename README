@@ -1,11 +1,21 @@
 Compile:
-# make (using makefile)
+# make
 
 Run:
-# time ./collatz_basic
-# time ./collatz_speedup
+# time ./collatz_basic (180ms)
+# time ./collatz_speedup (10ms)
 
 *see the huge speed improvement!
 
 Clean up:
 # make clean
+
+Tested on:
+Intel(R) Core(TM) i7-4980HQ CPU @ 2.80GHz
+Apple LLVM version 7.3.0 (clang-703.0.29)
+Target: x86_64-apple-darwin15.4.0
+Thread model: posix
+
+14.04.1-Ubuntu
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.1)
+Thread model: posix

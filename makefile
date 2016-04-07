@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Ofast
+CFLAGS = -std=c99 -Ofast
 BASIC = collatz_basic
 SPEEDUP = collatz_speedup
 
